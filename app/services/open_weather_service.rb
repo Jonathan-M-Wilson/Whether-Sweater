@@ -15,6 +15,7 @@ class OpenWeatherService
 
     def conn
       Faraday.new(url: 'https://api.openweathermap.org') do |f|
+        f.params['units'] = 'imperial'
         f.params[:appid] = ENV['OPEN_WEATHER_API_KEY']
       end
     end

@@ -1,11 +1,5 @@
 class ForecastFacade
   class << self
-    def forecast_by_location(location)
-      coordinates = geocode(location)
-      forecast_data = weather_service(coordinates)
-      Forecast.new(forecast_data, location)
-    end
-
     def weather(location)
       data = {
         current_weather: current_weather(location),

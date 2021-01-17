@@ -124,4 +124,18 @@ RSpec.describe "Get Weather for City Endpoint" do
       expect(hourly[:temperature]).to be_a(Float)
     end
   end
+
+  it "can render a 400 status if no location is specified " do
+    params = {
+      location: ''
+    }
+
+    headers = {
+      'content-type': 'application/json',
+      'Accept': 'application/json'
+    }
+
+    get '/api/v1/forecast', headers: headers, params: params
+    expect(response.body).to eq("{\"errors\":\"No location specified\"}")
+  end
 end

@@ -1,10 +1,18 @@
 class ForecastFacade
   class << self
-
     def forecast_by_location(location)
       coordinates = geocode(location)
       forecast_data = weather_service(coordinates)
       Forecast.new(forecast_data, location)
+    end
+
+    def weather(location)
+      data = {
+        current_weather: current_weather(location),
+        daily_weather: daily_weather(location),
+        hourly_weather: hourly_weather(location)
+      }
+      Forecast.new(data, location)
     end
 
     def current_weather(location)
@@ -51,7 +59,7 @@ class ForecastFacade
           conditions: forecast[:weather][0][:description],
           icon: forecast[:weather][0][:icon]
         }
-      HourlyForecast.new(data)
+        HourlyForecast.new(data)
       end
     end
 

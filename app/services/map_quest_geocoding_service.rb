@@ -18,4 +18,3 @@ class MapQuestGeocodingService
     end
   end
 end
-# ("/geocoding/v1/address?location=#{location}")

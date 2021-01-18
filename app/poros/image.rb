@@ -1,11 +1,11 @@
 class Image
-  attr_reader :location,
-              :image_url,
-              :credit
+  attr_reader :image
 
   def initialize(data)
-    @location = data[:location]
-    @image_url = data[:image_url]
-    @credit = data[:credit]
+    @image = {
+      location: data[:location],
+      image_url: data[:image_url],
+      credit:  data[:credit]
+    }
   end
 end

@@ -17,12 +17,15 @@ RSpec.describe ImageSerializer do
     serialized = ImageSerializer.new(image).serializable_hash
 
     expect(serialized).to have_key(:data)
+    expect(serialized[:data]).to have_key(:id)
     expect(serialized[:data]).to have_key(:type)
-    expect(serialized[:data][:attributes]).to have_key(:location)
-    expect(serialized[:data][:attributes]).to have_key(:image_url)
-    expect(serialized[:data][:attributes]).to have_key(:credit)
-    expect(serialized[:data][:attributes][:credit]).to have_key(:source)
-    expect(serialized[:data][:attributes][:credit]).to have_key(:author)
-    expect(serialized[:data][:attributes][:credit]).to have_key(:logo)
+    expect(serialized[:data]).to have_key(:attributes)
+    expect(serialized[:data][:attributes]).to have_key(:image)
+    expect(serialized[:data][:attributes][:image]).to have_key(:location)
+    expect(serialized[:data][:attributes][:image]).to have_key(:image_url)
+    expect(serialized[:data][:attributes][:image]).to have_key(:credit)
+    expect(serialized[:data][:attributes][:image][:credit]).to have_key(:source)
+    expect(serialized[:data][:attributes][:image][:credit]).to have_key(:author)
+    expect(serialized[:data][:attributes][:image][:credit]).to have_key(:logo)
   end
 end

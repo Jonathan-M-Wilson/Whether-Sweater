@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Create User Endpoint" do
+RSpec.describe "User Endpoint" do
   before :each do
     User.destroy_all
   end

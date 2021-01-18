@@ -8,10 +8,10 @@ RSpec.describe ImageFacade do
       image = ImageFacade.get_background(location)
       expect(image).to be_an_instance_of(Image)
 
-      expect(image.credit).to be_a(Hash)
-      expect(image.location).to be_a(String)
-      expect(image.location).to eq(location)
-      expect(image.image_url).to be_a(String)
+      expect(image.image[:credit]).to be_a(Hash)
+      expect(image.image[:location]).to be_a(String)
+      expect(image.image[:location]).to eq(location)
+      expect(image.image[:image_url]).to be_a(String)
     end
   end
 end

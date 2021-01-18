@@ -136,6 +136,7 @@ RSpec.describe "Get Weather for City Endpoint" do
     }
 
     get '/api/v1/forecast', headers: headers, params: params
+    expect(response.status).to eq(400)
     expect(response.body).to eq("{\"errors\":\"No location specified\"}")
   end
 end

@@ -24,8 +24,9 @@ RSpec.describe "Get Background Image for City Endpoint" do
     expect(background_json[:data]).to have_key(:type)
     expect(background_json[:data][:type]).to eq('image')
     expect(background_json[:data]).to have_key(:attributes)
-    expect(background_json[:data][:attributes].size).to eq(3)
+    expect(background_json[:data][:attributes].size).to eq(1)
     expect(background_json[:data][:attributes]).to have_key(:image)
+    expect(background_json[:data][:attributes][:image].size).to eq(3)
     expect(background_json[:data][:attributes][:image]).to have_key(:credit)
     expect(background_json[:data][:attributes][:image]).to have_key(:location)
     expect(background_json[:data][:attributes][:image]).to have_key(:image_url)
@@ -34,7 +35,7 @@ RSpec.describe "Get Background Image for City Endpoint" do
     expect(background_json[:data][:attributes][:image][:credit]).to have_key(:author)
     expect(background_json[:data][:attributes][:image][:credit]).to have_key(:logo)
 
-    data_attributes = background_json[:data][:attributes]
+    data_attributes = background_json[:data][:attributes][:image]
     data_attributes_credits = background_json[:data][:attributes][:image][:credit]
 
     credit = background_json[:data][:attributes][:image][:credit]

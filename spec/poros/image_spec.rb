@@ -12,8 +12,8 @@ RSpec.describe Image do
       }
     }
     image = Image.new(data)
-    expect(image.location).to eq(data[:location])
-    expect(image.image_url).to eq(data[:image_url])
-    expect(image.credit).to eq(data[:credit])
+    expect(image.image[:location]).to eq(data[:location])
+    expect(image.image[:image_url]).to eq(data[:image_url])
+    expect(image.image[:credit]).to eq(data[:credit])
   end
 end

@@ -10,7 +10,11 @@ RSpec.describe User, type: :model do
 
   describe 'methods' do
     it "When a user is created, it is created with an api key" do
-      user = User.create!(email: 'user@example.com', password: 'password', password_confirmation: 'password')
+      user = User.create!(
+        email: 'user@example.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
       expect(user.api_key.nil?).to eq(false)
     end
   end

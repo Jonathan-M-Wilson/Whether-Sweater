@@ -73,7 +73,7 @@ RSpec.describe "Create User Endpoint" do
     post '/api/v1/users', headers: headers, params: JSON.generate(params)
 
     expect(response.status).to eq(400)
-    expect(response.body).to eq("{\"error\":\"Email address is already in use\"}")
+    expect(response.body).to eq("{\"error\":\"Account with this email already exists\"}")
   end
 
   it "can render a 400 status if passwords do not match" do

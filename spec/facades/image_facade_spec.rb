@@ -1,0 +1,17 @@
+require 'rails_helper'
+
+RSpec.describe ImageFacade do
+  it "can create an image with a location", :vcr do
+    VCR.use_cassette('/image_facade/denver_image.json') do
+
+      location = 'Denver City Colorado'
+      image = ImageFacade.get_background(location)
+      expect(image).to be_an_instance_of(Image)
+
+      expect(image.credit).to be_a(Hash)
+      expect(image.location).to be_a(String)
+      expect(image.location).to eq(location)
+      expect(image.image_url).to be_a(String)
+    end
+  end
+end

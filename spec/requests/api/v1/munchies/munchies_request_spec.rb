@@ -20,7 +20,6 @@ RSpec.describe "Munchies Endpoint" do
     expect(response.content_type).to eq('application/json; charset=utf-8')
 
     munchies_json = JSON.parse(response.body, symbolize_names: true)
-    require "pry"; binding.pry
 
     expect(munchies_json.class).to eq(Hash)
     expect(munchies_json[:data].size).to eq(3)
@@ -39,5 +38,23 @@ RSpec.describe "Munchies Endpoint" do
     expect(munchies_json[:data][:attributes]).to have_key(:restaurant)
     expect(munchies_json[:data][:attributes][:restaurant]).to have_key(:name)
     expect(munchies_json[:data][:attributes][:restaurant]).to have_key(:address)
+  end
+
+  it "can render a 400 status if required fields are missing" do
+    params = {
+      start_city: 'Denver,Co',
+      end_city: 'Pueblo,Co',
+      food: ''
+    }
+
+    headers = {
+      'content-type': 'application/json',
+      'Accept': 'application/json'
+    }
+
+    get '/api/v1/munchies', headers: headers, params: params
+
+    expect(response.status).to eq(400)
+    expect(response.body).to eq("{\"errors\":\"Missing required fields, please try again\"}")
   end
 end

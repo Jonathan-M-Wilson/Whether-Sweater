@@ -7,15 +7,6 @@
 [![Issues][issues-shield]][issues-url]
 [![Build Status](https://travis-ci.com/travis-ci/travis-web.svg?branch=master)](https://travis-ci.com/github/Jonathan-M-Wilson/Whether-Sweater)
 
-
-<!-- PROJECT LOGO photo
-  Add path to photo from app/assets/images
-<br />
-<p align="center">
-  <a href="https://github.com/ETBassist/viewing_party">
-    <img src="" alt="Logo" width="80" height="80">
-  </a> -->
-
   <h3 align="center">Whether-Sweater</h3>
 
   <p align="center">
@@ -364,8 +355,6 @@ Response:
 </details><br />
 
 
-
-
 ##### Post /sessions
 <details>
 
@@ -409,11 +398,6 @@ Response:
 ```
 </details><br />
 </details><br />
-
-
-
-
-
 
 
 ##### Post /road_trip

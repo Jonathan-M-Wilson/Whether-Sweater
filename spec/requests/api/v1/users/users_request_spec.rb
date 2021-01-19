@@ -34,6 +34,22 @@ RSpec.describe "User Endpoint" do
     expect(user_json[:data][:attributes]).to have_key(:api_key)
   end
 
+  it "can render a 201 status if request is successful" do
+    params = {
+      email: 'testing@example.com',
+      password: 'password',
+      password_confirmation: 'password'
+    }
+
+    headers = {
+      'content-type': 'application/json',
+      'Accept': 'application/json'
+    }
+
+    post '/api/v1/users', headers: headers, params: JSON.generate(params)
+    expect(response.status).to eq(201)
+  end
+
   it "can render a 400 status if fields are left blank " do
     params = {
       email: 'testing@example.com',

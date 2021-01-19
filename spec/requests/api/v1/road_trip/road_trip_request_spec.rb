@@ -26,7 +26,6 @@ RSpec.describe "Road Trip Endpoint" do
 
     road_trip_json = JSON.parse(response.body, symbolize_names: true)
 
-
     expect(response).to be_successful
     expect(response.status).to eq(200)
 
@@ -75,5 +74,39 @@ RSpec.describe "Road Trip Endpoint" do
 
     expect(response.status).to eq(401)
     expect(response.body).to eq("{\"error\":\"Unauthorized request, please check your credentials\"}")
+  end
+
+  describe "If a user queries an impossible route" do
+    it "can return data with an empty weather block and an impossible travel time" do
+
+      user_params = {
+        email: 'whatever@example.com',
+        password: 'password',
+        password_confirmation: 'password'
+      }
+
+      user = User.create!(user_params)
+
+      headers = {
+        'content-type': 'application/json',
+        'Accept': 'application/json'
+      }
+
+      params = {
+        "origin": "Denver,CO",
+        "destination": "Honolulu,HI",
+        "api_key": "#{user.api_key}"
+      }
+
+      post '/api/v1/road_trip', headers: headers, params: JSON.generate(params)
+
+      road_trip_json = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+
+      expect(road_trip_json[:data][:attributes][:travel_time]).to eq("impossible")
+      expect(road_trip_json[:data][:attributes][:weather_at_eta]).to eq(nil)
+    end
   end
 end

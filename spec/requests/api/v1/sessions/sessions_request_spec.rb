@@ -25,12 +25,9 @@ RSpec.describe "Sessions Endpoint" do
     user = User.create!(user_params)
 
     post '/api/v1/sessions', headers: headers, params: JSON.generate(params)
-
-    expect(response).to be_successful
-    expect(response.status).to eq(200)
-
     login_json = JSON.parse(response.body, symbolize_names: true)
 
+    expect(response).to be_successful
     expect(login_json[:data].size).to eq(3)
 
     expect(login_json[:data]).to have_key(:id)
@@ -65,6 +62,30 @@ RSpec.describe "Sessions Endpoint" do
     expect(response.status).to eq(400)
     expect(response.body).to eq("{\"error\":\"Given email address does not match our records, try again\"}")
   end
+
+  it "can render a 200 status if request is successful" do
+    user_params = {
+      email: 'whatever@example.com',
+      password: 'password',
+      password_confirmation: 'password'
+    }
+
+    headers = {
+      'content-type': 'application/json',
+      'Accept': 'application/json'
+    }
+
+    params = {
+      "email": "whatever@example.com",
+      "password": "password"
+    }
+
+    user = User.create!(user_params)
+
+    post '/api/v1/sessions', headers: headers, params: JSON.generate(params)
+    expect(response.status).to eq(200)
+  end
+
 
   it "can render a 400 status if email doesnt exist" do
     user = User.create!(

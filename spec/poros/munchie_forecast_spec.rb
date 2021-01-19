@@ -8,7 +8,7 @@ RSpec.describe MunchieForecast do
       :description=>"overcast clouds"
     }
 
-    MunchieForecast.new(data)
+    munchie_forecast = MunchieForecast.new(data)
 
     expect(munchie_forecast.summary).to eq(data[:description])
     expect(munchie_forecast.temperature).to eq(data[:temp])

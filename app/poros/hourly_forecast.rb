@@ -16,7 +16,7 @@ class HourlyForecast
   end
 
   def format_time(time, format)
-    Time.at(time).strftime(format)
+    Time.zone.at(time).strftime(format)
   end
 
   def icon_link(icon_code)
@@ -31,25 +31,25 @@ class HourlyForecast
   def wind_direction_degrees_to_compass(hourly_forecast_params)
     degree = hourly_forecast_params[:wind_direction]
 
-    compass_sector = [
-      "N",
-      "NNE",
-      "NE",
-      "ENE",
-      "E",
-      "ESE",
-      "SE",
-      "SSE",
-      "S",
-      "SSW",
-      "SW",
-      "WSW",
-      "W",
-      "WNW",
-      "NW",
-      "NNW",
-      "N"
-      ]
+    compass_sector = %w[
+      N
+      NNE
+      NE
+      ENE
+      E
+      ESE
+      SE
+      SSE
+      S
+      SSW
+      SW
+      WSW
+      W
+      WNW
+      NW
+      NNW
+      N
+    ]
 
     compass_sector[(degree / 22.5)]
   end

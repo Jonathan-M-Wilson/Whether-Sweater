@@ -1,7 +1,6 @@
 class RoadTripFacade
   class << self
     def road_trip(start_city, end_city)
-
       data = {
         start_city: start_city,
         end_city: end_city,
@@ -20,8 +19,8 @@ class RoadTripFacade
 
     def find_travel_time(start_city, end_city)
       time = MapQuestGeocodingService.road_trip(start_city, end_city)
-      if time[:info][:messages] == ["We are unable to route with the given locations."]
-        "impossible"
+      if time[:info][:messages] == ['We are unable to route with the given locations.']
+        'impossible'
       else
         time[:route][:legs][0][:time]
       end

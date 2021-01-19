@@ -24,7 +24,7 @@ class CurrentForecast
   end
 
   def format_time(time)
-    Time.at(time)
+    Time.zone.at(time)
   end
 
   def icon_link(icon_code)

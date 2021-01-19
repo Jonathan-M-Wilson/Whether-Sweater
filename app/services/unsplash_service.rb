@@ -1,7 +1,7 @@
 class UnsplashService
   class << self
     def get_background(query)
-      response = conn.get "/search/photos" do |req|
+      response = conn.get '/search/photos' do |req|
         req.params['query'] = query
         req.params['per_page'] = 1
         req.params['order_by'] = 'relevent'
@@ -17,8 +17,8 @@ class UnsplashService
 
     def conn
       Faraday.new(url: 'https://api.unsplash.com/') do |f|
-      f.headers['Accept-Version'] = 'v1'
-      f.params['client_id'] = ENV['UNSPLASH_API_KEY']
+        f.headers['Accept-Version'] = 'v1'
+        f.params['client_id'] = ENV['UNSPLASH_API_KEY']
       end
     end
   end

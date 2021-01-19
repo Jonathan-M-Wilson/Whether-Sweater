@@ -12,7 +12,7 @@ class RoadTrip
   end
 
   def format_weather(data)
-    if data[:travel_time] == "impossible"
+    if data[:travel_time] == 'impossible'
       nil
     else
       data[:weather_at_eta]
@@ -20,8 +20,8 @@ class RoadTrip
   end
 
   def formatted_travel_time(data)
-    if data == "impossible"
-      "impossible"
+    if data == 'impossible'
+      'impossible'
     else
       minutes = data.to_f / 60
       hours = (minutes / 60).to_i
@@ -30,16 +30,16 @@ class RoadTrip
 
       pluralize_hours =
         if hours == 1
-          "hour"
+          'hour'
         else
-          "hours"
+          'hours'
         end
 
       pluralize_minutes =
         if fractal_minutes == 1
-          "minute"
+          'minute'
         else
-          "minutes"
+          'minutes'
         end
 
       "#{hours} #{pluralize_hours}, #{fractal_minutes} #{pluralize_minutes}"

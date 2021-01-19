@@ -5,7 +5,7 @@ class Image
     @image = {
       location: data[:location],
       image_url: data[:image_url],
-      credit:  data[:credit]
+      credit: data[:credit]
     }
   end
 end

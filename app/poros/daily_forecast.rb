@@ -18,7 +18,7 @@ class DailyForecast
   end
 
   def format_time(time, format)
-    Time.at(time).strftime(format)
+    Time.zone.at(time).strftime(format)
   end
 
   def icon_link(icon_code)

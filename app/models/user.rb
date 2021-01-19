@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   before_create :set_user_api_key
 
-  validates :email, uniqueness: true, presence:true
-  validates_presence_of :password, require: true
-  validates_presence_of :password_confirmation, require: true
+  validates :email, uniqueness: true, presence: true
+  validates :password, presence: { require: true }
+  validates :password_confirmation, presence: { require: true }
 
   has_secure_password
 

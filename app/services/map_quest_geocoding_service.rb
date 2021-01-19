@@ -1,7 +1,7 @@
 class MapQuestGeocodingService
   class << self
     def search(location)
-      response = conn.get "/geocoding/v1/address" do |req|
+      response = conn.get '/geocoding/v1/address' do |req|
         req.params[:location] = location
       end
       get_json(response)

@@ -15,9 +15,6 @@ RSpec.describe "Get Weather for City Endpoint" do
     get '/api/v1/forecast', headers: headers, params: params
 
     expect(response).to be_successful
-
-    # I have been unsuccessful at removing charset from content type,
-    # will return to fix this later. Check project board
     expect(response.content_type).to eq('application/json; charset=utf-8')
 
     forecasts_json = JSON.parse(response.body, symbolize_names: true)
@@ -123,6 +120,20 @@ RSpec.describe "Get Weather for City Endpoint" do
     unless hourly[:temperature].class == Integer
       expect(hourly[:temperature]).to be_a(Float)
     end
+  end
+
+  it "can render a 200 status if request is successful" do
+    params = {
+      location: 'denver,co'
+    }
+
+    headers = {
+      'content-type': 'application/json',
+      'Accept': 'application/json'
+    }
+
+    get '/api/v1/forecast', headers: headers, params: params
+    expect(response.status).to eq(200)
   end
 
   it "can render a 400 status if no location is specified " do

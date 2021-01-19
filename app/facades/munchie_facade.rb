@@ -10,7 +10,7 @@ class MunchieFacade
         forecast: current_forecast_at_destination(end_city),
         restaurant: restaurant_at_destination(end_city, unix_time, food)
       }
-      RoadTrip.new(data)
+      Munchie.new(data)
     end
 
     def current_forecast_at_destination(end_city)

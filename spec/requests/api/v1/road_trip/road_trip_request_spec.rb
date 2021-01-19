@@ -27,8 +27,6 @@ RSpec.describe "Road Trip Endpoint" do
     road_trip_json = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_successful
-    expect(response.status).to eq(200)
-
     expect(road_trip_json.class).to eq(Hash)
     expect(road_trip_json[:data].size).to eq(3)
     expect(road_trip_json[:data]).to have_key(:id)
@@ -53,6 +51,30 @@ RSpec.describe "Road Trip Endpoint" do
 
     expect(road_trip_json[:data][:attributes][:weather_at_eta]).to have_key(:temperature)
     expect(road_trip_json[:data][:attributes][:weather_at_eta]).to have_key(:conditions)
+  end
+
+  it "can render a 200 status if request is successful" do
+    user_params = {
+      email: 'whatever@example.com',
+      password: 'password',
+      password_confirmation: 'password'
+    }
+
+    user = User.create!(user_params)
+
+    headers = {
+      'content-type': 'application/json',
+      'Accept': 'application/json'
+    }
+
+    params = {
+      "origin": "Denver,CO",
+      "destination": "Pueblo,CO",
+      "api_key": "#{user.api_key}"
+    }
+
+    post '/api/v1/road_trip', headers: headers, params: JSON.generate(params)
+    expect(response.status).to eq(200)
   end
 
   it "can render a 401 status if api key is incorrect or not provided" do

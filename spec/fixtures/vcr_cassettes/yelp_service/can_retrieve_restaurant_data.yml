@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.yelp.com/v3/businesses/search?location=Denver,Co&open_at=1610955000&term=chinese
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer epSwSfHgAUJby0yq6xu3WuGL5yVRNWO5FZ88zL79GmAxG61lI5g8sXOhQgy6gGIm2MQg-lP_cRGsfHvF14uQlzrUvrjYZw1OtPytu4n4iH7atuqsUI-wUI_UEesFYHYx
+      User-Agent:
+      - Faraday v1.3.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Ratelimit-Dailylimit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4963'
+      X-Zipkin-Id:
+      - 17f484c232ce6fb9
+      Server:
+      - envoy
+      Ratelimit-Resettime:
+      - '2021-01-20T00:00:00+00:00'
+      X-Routing-Service:
+      - routing-main--useast1-5bc6d6966-jmkqw; site=public_api_v3
+      X-B3-Sampled:
+      - '0'
+      X-Proxied:
+      - 10-65-66-213-useast1aprod
+      X-Extlb:
+      - 10-65-66-213-useast1aprod
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store, private, no-transform
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 19 Jan 2021 17:53:07 GMT
+      Via:
+      - 1.1 varnish
+      X-Served-By:
+      - cache-mci5940-MCI
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"businesses": [{"id": "3MBOoXCUrZVujceQ5qCsTg", "alias": "new-century-karaoke-and-restaurant-denver-2",
+        "name": "New Century Karaoke & Restaurant", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/9DhH-U_xBPeIRa92uPkl5Q/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/new-century-karaoke-and-restaurant-denver-2?adjust_creative=nM9HEVm_LjuRNEEcmckypg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=nM9HEVm_LjuRNEEcmckypg",
+        "review_count": 12, "categories": [{"alias": "chinese", "title": "Chinese"},
+        {"alias": "karaoke", "title": "Karaoke"}, {"alias": "noodles", "title": "Noodles"}],
+        "rating": 4.5, "coordinates": {"latitude": 39.688052, "longitude": -104.867754},
+        "transactions": [], "location": {"address1": "1555 S Havana St", "address2":
+        "Unit B", "address3": "", "city": "Denver", "zip_code": "80012", "country":
+        "US", "state": "CO", "display_address": ["1555 S Havana St", "Unit B", "Denver,
+        CO 80012"]}, "phone": "+13037500059", "display_phone": "(303) 750-0059", "distance":
+        10231.314742558565}, {"id": "_gR0qfqK-uBE64VJmNdtDw", "alias": "d-station-denver",
+        "name": "D Station", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/hoezS9irwX6QkORZSF5teQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/d-station-denver?adjust_creative=nM9HEVm_LjuRNEEcmckypg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=nM9HEVm_LjuRNEEcmckypg",
+        "review_count": 55, "categories": [{"alias": "cajun", "title": "Cajun/Creole"},
+        {"alias": "hotpot", "title": "Hot Pot"}, {"alias": "poke", "title": "Poke"}],
+        "rating": 4.0, "coordinates": {"latitude": 39.678733, "longitude": -104.966623},
+        "transactions": ["delivery", "pickup"], "price": "$$", "location": {"address1":
+        "1737 E Evans Ave", "address2": "", "address3": null, "city": "Denver", "zip_code":
+        "80210", "country": "US", "state": "CO", "display_address": ["1737 E Evans
+        Ave", "Denver, CO 80210"]}, "phone": "+17205357872", "display_phone": "(720)
+        535-7872", "distance": 6321.20766786321}, {"id": "cDai7g-uaXJHAe06bXSKdA",
+        "alias": "golden-sun-boulder", "name": "Golden Sun", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/ZRKmeE6B0CXd6Fbhj2JaRg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/golden-sun-boulder?adjust_creative=nM9HEVm_LjuRNEEcmckypg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=nM9HEVm_LjuRNEEcmckypg",
+        "review_count": 138, "categories": [{"alias": "chinese", "title": "Chinese"}],
+        "rating": 2.5, "coordinates": {"latitude": 40.0152037, "longitude": -105.2586729},
+        "transactions": ["delivery", "pickup"], "price": "$$", "location": {"address1":
+        "1635 28th St", "address2": "", "address3": "", "city": "Boulder", "zip_code":
+        "80301", "country": "US", "state": "CO", "display_address": ["1635 28th St",
+        "Boulder, CO 80301"]}, "phone": "+13034490783", "display_phone": "(303) 449-0783",
+        "distance": 39705.80292058778}], "total": 3, "region": {"center": {"longitude":
+        -104.97024536132812, "latitude": 39.73552421220229}}}'
+  recorded_at: Tue, 19 Jan 2021 17:53:08 GMT
+recorded_with: VCR 6.0.0

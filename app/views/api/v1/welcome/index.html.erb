@@ -1,0 +1,327 @@
+<p><a href="https://travis-ci.com/github/Jonathan-M-Wilson/Whether-Sweater"><img src="https://travis-ci.com/travis-ci/travis-web.svg?branch=master" alt="Build Status" /></a></p>
+  <h1 align="center">Whether-Sweater</h1>
+
+  <p align="center">
+    Wether-Sweater is a backend application designed to satisfy the needs of a front-end team who are developing an application to create a road trip weather planning app. This application builds out the endpoints based off the wireframes supplied by the front-end.
+    <br />
+    <a href="https://github.com/Jonathan-M-Wilson/Whether-Sweater"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <br />
+    ·
+    <a href="https://github.com/Jonathan-M-Wilson/Whether-Sweater/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Jonathan-M-Wilson/Whether-Sweater/issues">Request Feature</a>
+  </p>
+  <br />
+  <br />
+
+
+<h2 id="about-the-project">About The Project</h2>
+<p>Wether Sweater is a 5-day, solo project during module three, of Turing School's Back-End Engineering Program.</p>
+<p>This application is a web application designed to consume and produce API's. The application utilizes Ruby on Rails, with a PostgrSQL database.</p>
+<h3 id="built-with">Built With</h3>
+
+<li><a href="https://github.com/ruby/ruby">Ruby</a></li>
+<li><a href="https://github.com/rails/rails">Rails</a></li><br />
+<br />
+
+
+<h2> Additional info </h2>
+<p>For additional information and documentation, please visit this project's <a href="https://github.com/Jonathan-M-Wilson/Whether-Sweater/blob/master/README.md">README</a></p>
+
+<br /><br /><br />
+
+  <h2>Endpoints</h2>
+  <p>Below you will find a list of the endpoints within Wether Sweater.</p><br /><br />
+
+
+  <p><a href="https://app.getpostman.com/run-collection/f56ae596c9bcd1b393a8"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+  <br /><br />
+  <h3 id="get-forecast">GET /forecast</h3>
+  <details>
+
+  <summary>
+  TLDR: Returns the forecast for a specified city or location.
+  </summary><br />
+
+  <p>The /forecast endpoint takes the query city or location and sends it to the MapQuest Geocoding service, where the latitude and longitude are retrieved to then be used in the OpenWeather service. Returns Current Weather, an array of the next 5 days of daily weather, and an array of the next 8 hours of hourly weather.</p>
+  <p>Example Request: <code>GET /api/v1/forecast?location=kenai,ak</code></p>
+
+  <p>Response:</p>
+<details>
+
+<pre><code>{
+    &quot;data&quot;: {
+        &quot;id&quot;: null,
+        &quot;type&quot;: &quot;forecast&quot;,
+        &quot;attributes&quot;: {
+            &quot;location&quot;: &quot;&#39;kenai,ak&#39;&quot;,
+            &quot;current_weather&quot;: {
+                &quot;datetime&quot;: &quot;2021-01-19 21:01:27 UTC&quot;,
+                &quot;sunrise&quot;: &quot;2021-01-19 18:49:03 UTC&quot;,
+                &quot;sunset&quot;: &quot;2021-01-20 01:42:16 UTC&quot;,
+                &quot;temperature&quot;: 29.34,
+                &quot;feels_like&quot;: 14.81,
+                &quot;humidity&quot;: 74,
+                &quot;uvi&quot;: 0.22,
+                &quot;visibility&quot;: 10000,
+                &quot;conditions&quot;: &quot;clear sky&quot;,
+                &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/01d@2x.png&quot;
+            },
+            &quot;daily_weather&quot;: [
+                {
+                    &quot;date&quot;: &quot;2021-01-20&quot;,
+                    &quot;sunrise&quot;: &quot;2021-01-20 18:47:09+00:00&quot;,
+                    &quot;sunset&quot;: &quot;2021-01-21 01:44:46+00:00&quot;,
+                    &quot;max_temp&quot;: 27.57,
+                    &quot;min_temp&quot;: 24.4,
+                    &quot;conditions&quot;: &quot;overcast clouds&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/04d@2x.png&quot;
+                },
+                {
+                    &quot;date&quot;: &quot;2021-01-21&quot;,
+                    &quot;sunrise&quot;: &quot;2021-01-21 18:45:11+00:00&quot;,
+                    &quot;sunset&quot;: &quot;2021-01-22 01:47:18+00:00&quot;,
+                    &quot;max_temp&quot;: 28.29,
+                    &quot;min_temp&quot;: 23.86,
+                    &quot;conditions&quot;: &quot;overcast clouds&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/04d@2x.png&quot;
+                },
+                {
+                    &quot;date&quot;: &quot;2021-01-22&quot;,
+                    &quot;sunrise&quot;: &quot;2021-01-22 18:43:11+00:00&quot;,
+                    &quot;sunset&quot;: &quot;2021-01-23 01:49:51+00:00&quot;,
+                    &quot;max_temp&quot;: 29.17,
+                    &quot;min_temp&quot;: 26.58,
+                    &quot;conditions&quot;: &quot;overcast clouds&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/04d@2x.png&quot;
+                },
+                {
+                    &quot;date&quot;: &quot;2021-01-23&quot;,
+                    &quot;sunrise&quot;: &quot;2021-01-23 18:41:07+00:00&quot;,
+                    &quot;sunset&quot;: &quot;2021-01-24 01:52:26+00:00&quot;,
+                    &quot;max_temp&quot;: 30.02,
+                    &quot;min_temp&quot;: 28.2,
+                    &quot;conditions&quot;: &quot;snow&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/13d@2x.png&quot;
+                },
+                {
+                    &quot;date&quot;: &quot;2021-01-24&quot;,
+                    &quot;sunrise&quot;: &quot;2021-01-24 18:39:01+00:00&quot;,
+                    &quot;sunset&quot;: &quot;2021-01-25 01:55:03+00:00&quot;,
+                    &quot;max_temp&quot;: 28,
+                    &quot;min_temp&quot;: 20.21,
+                    &quot;conditions&quot;: &quot;scattered clouds&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/03d@2x.png&quot;
+                }
+            ],
+            &quot;hourly_weather&quot;: [
+                {
+                    &quot;time&quot;: &quot;22:00:00&quot;,
+                    &quot;temperature&quot;: 28.44,
+                    &quot;wind_speed&quot;: &quot;13.71 mph&quot;,
+                    &quot;wind_direction&quot;: &quot;S&quot;,
+                    &quot;conditions&quot;: &quot;clear sky&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/01d@2x.png&quot;
+                },
+                {
+                    &quot;time&quot;: &quot;23:00:00&quot;,
+                    &quot;temperature&quot;: 28.2,
+                    &quot;wind_speed&quot;: &quot;11.63 mph&quot;,
+                    &quot;wind_direction&quot;: &quot;S&quot;,
+                    &quot;conditions&quot;: &quot;clear sky&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/01d@2x.png&quot;
+                },
+                {
+                    &quot;time&quot;: &quot;00:00:00&quot;,
+                    &quot;temperature&quot;: 27.88,
+                    &quot;wind_speed&quot;: &quot;8.55 mph&quot;,
+                    &quot;wind_direction&quot;: &quot;S&quot;,
+                    &quot;conditions&quot;: &quot;clear sky&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/01d@2x.png&quot;
+                },
+                {
+                    &quot;time&quot;: &quot;01:00:00&quot;,
+                    &quot;temperature&quot;: 26.6,
+                    &quot;wind_speed&quot;: &quot;5.7 mph&quot;,
+                    &quot;wind_direction&quot;: &quot;SSW&quot;,
+                    &quot;conditions&quot;: &quot;broken clouds&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/04d@2x.png&quot;
+                },
+                {
+                    &quot;time&quot;: &quot;02:00:00&quot;,
+                    &quot;temperature&quot;: 25.5,
+                    &quot;wind_speed&quot;: &quot;3.22 mph&quot;,
+                    &quot;wind_direction&quot;: &quot;SW&quot;,
+                    &quot;conditions&quot;: &quot;broken clouds&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/04n@2x.png&quot;
+                },
+                {
+                    &quot;time&quot;: &quot;03:00:00&quot;,
+                    &quot;temperature&quot;: 25.16,
+                    &quot;wind_speed&quot;: &quot;0.85 mph&quot;,
+                    &quot;wind_direction&quot;: &quot;NNE&quot;,
+                    &quot;conditions&quot;: &quot;overcast clouds&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/04n@2x.png&quot;
+                },
+                {
+                    &quot;time&quot;: &quot;04:00:00&quot;,
+                    &quot;temperature&quot;: 25.68,
+                    &quot;wind_speed&quot;: &quot;3.13 mph&quot;,
+                    &quot;wind_direction&quot;: &quot;NNE&quot;,
+                    &quot;conditions&quot;: &quot;overcast clouds&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/04n@2x.png&quot;
+                },
+                {
+                    &quot;time&quot;: &quot;05:00:00&quot;,
+                    &quot;temperature&quot;: 25.38,
+                    &quot;wind_speed&quot;: &quot;5.91 mph&quot;,
+                    &quot;wind_direction&quot;: &quot;N&quot;,
+                    &quot;conditions&quot;: &quot;light snow&quot;,
+                    &quot;icon&quot;: &quot;http://openweathermap.org/img/wn/13n@2x.png&quot;
+                }
+            ]
+        }
+    }
+}</code></pre>
+</details>
+</details><br /><br /><br />
+
+<h3 id="get-background">GET /background</h3>
+<details>
+
+<summary>
+TLDR: The frontend developers needed an endpoint to fetch a background image for that page showing the city
+</summary><br />
+
+<p>This endpoint utilizes the Unplash api, to use the name of a city or location to retrieve an appropriate background image.</p>
+<p>Example Request: <code>GET /api/v1/backgrounds?location='City Of Denver'</code></p>
+<p>Response:</p>
+<details>
+
+<pre><code>{
+    &quot;data&quot;: {
+        &quot;id&quot;: null,
+        &quot;type&quot;: &quot;image&quot;,
+        &quot;attributes&quot;: {
+            &quot;image&quot;: {
+                &quot;location&quot;: &quot;&#39;City Of Denver&#39;&quot;,
+                &quot;image_url&quot;: &quot;https://images.unsplash.com/photo-1603033156166-2ae22eb2b7e2?ixid=MXwxOTkzODh8MHwxfHNlYXJjaHwxfHwnQ2l0eSUyME9mJTIwRGVudmVyJ3xlbnwwfHx8&amp;ixlib=rb-1.2.1&quot;,
+                &quot;credit&quot;: {
+                    &quot;source&quot;: &quot;https://unsplash.com/&quot;,
+                    &quot;author&quot;: &quot;andrewcoop&quot;,
+                    &quot;logo&quot;: &quot;https://unsplash.com/blog/content/images/max/2560/1-VnKoValwGK3-d1bZhD6sVA.jpeg&quot;
+                }
+            }
+        }
+    }
+}</code></pre>
+</details>
+</details><br /><br /><br />
+
+<h3 id="post-users">Post /users</h3>
+<details>
+
+<summary>
+TLDR: Post endpoint for registration
+</summary><br />
+
+<p>This endpoint sends a JSON payload in the body of the request.</p>
+<p>A successful request creates a user in your database, and generates a unique api key associated with that user, with a 201 status code.</p>
+<p>An unsuccessful request returns an appropriate 400-level status code and body with a description of why the request wasn’t successful.</p>
+<p>Example Request: <code>POST /api/v1/users</code></p>
+<p>Payload Example:</p>
+<pre><code>{
+  &quot;email&quot;: &quot;testing@example.com&quot;,
+  &quot;password&quot;: &quot;password&quot;,
+  &quot;password_confirmation&quot;: &quot;password&quot;
+}</code></pre>
+<p>Response:</p>
+<details>
+
+<pre><code>{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;3&quot;,
+        &quot;type&quot;: &quot;users&quot;,
+        &quot;attributes&quot;: {
+            &quot;email&quot;: &quot;testing@example.com&quot;,
+            &quot;api_key&quot;: &quot;6fkgPPTGQZMDRrpSp9IyJg&quot;
+        }
+    }
+}</code></pre>
+</details><br />
+</details><br /><br /><br />
+
+<h3 id="post-sessions">Post /sessions</h3>
+<details>
+
+<summary>
+TLDR: Post endpoint for login.
+</summary><br />
+
+<p>This endpoint sends a JSON payload in the body of the request.</p>
+<p>A successful request returns the user’s api key.</p>
+<p>An unsuccessful request returns an appropriate 400-level status code and body with a description of why the request wasn’t successful.</p>
+<p>Example Request: <code>POST /api/v1/sessions</code></p>
+<p>Payload Example:</p>
+<pre><code>{
+  &quot;email&quot;: &quot;testing@example.com&quot;,
+  &quot;password&quot;: &quot;password&quot;
+}</code></pre>
+<p>Response:</p>
+<details>
+
+<pre><code>{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;3&quot;,
+        &quot;type&quot;: &quot;users&quot;,
+        &quot;attributes&quot;: {
+            &quot;email&quot;: &quot;testing@example.com&quot;,
+            &quot;api_key&quot;: &quot;6fkgPPTGQZMDRrpSp9IyJg&quot;
+        }
+    }
+}</code></pre>
+</details><br />
+</details><br /><br /><br />
+
+<h3 id="post-road_trip">Post /road_trip</h3>
+<details>
+
+<summary>
+TLDR: Post endpoint for new feature where users can plan road trips.
+</summary><br />
+
+<p>This endpoint sends a JSON payload in the body of the request.</p>
+<p>API key must be sent</p>
+<p>If no API key is given, or an incorrect key is provided, return 401 (Unauthorized)</p>
+<p>An unsuccessful request returns an appropriate 400-level status code and body with a description of why the request wasn’t successful.</p>
+<p>This endpoint will return a travel time of "impossible" and a nil weather block if an impossible route is inputted. For example, Traveling from New York, NY to London, UK, weather block will be nil and travel time will equal “impossible”.</p>
+<p>Example Request: <code>POST /api/v1/users</code></p>
+<p>Payload Example:</p>
+<pre><code>{
+    &quot;origin&quot;: &quot;Denver,Co&quot;,
+    &quot;destination&quot;: &quot;Pueblo,Co&quot;,
+    &quot;api_key&quot;: &quot;Nn0tBoFUsUmiE7u5RFTvkw&quot;
+}
+</code></pre>
+<p>Response:</p>
+<details>
+
+<pre><code>{
+    &quot;data&quot;: {
+        &quot;id&quot;: null,
+        &quot;type&quot;: &quot;roadtrip&quot;,
+        &quot;attributes&quot;: {
+            &quot;start_city&quot;: &quot;Denver,Co&quot;,
+            &quot;end_city&quot;: &quot;Pueblo,Co&quot;,
+            &quot;travel_time&quot;: &quot;1 hour, 44 minutes&quot;,
+            &quot;weather_at_eta&quot;: {
+                &quot;temperature&quot;: 35.19,
+                &quot;conditions&quot;: &quot;scattered clouds&quot;
+            }
+        }
+    }
+}</code></pre>
+</details><br />
+</details><br />

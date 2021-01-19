@@ -1,15 +1,15 @@
 class MunchieFacade
   class << self
     def munchie(start_city, end_city, food)
-      unix_time = 1610955000
+      travel_time = find_travel_time(start_city, end_city)
+      unix_time = travel_time + Time.now.to_i
 
       data = {
         destination_city: end_city,
-        travel_time: find_travel_time(start_city, end_city),
+        travel_time: travel_time,
         forecast: current_forecast_at_destination(end_city),
         restaurant: restaurant_at_destination(end_city, unix_time, food)
       }
-      require "pry"; binding.pry
       RoadTrip.new(data)
     end
 

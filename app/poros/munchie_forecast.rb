@@ -4,6 +4,6 @@ class MunchieForecast
 
   def initialize(params)
     @temperature = params[:temp]
-    @summary = params[:description]
+    @summary = params[:weather][0][:description]
   end
 end

@@ -63,7 +63,21 @@ RSpec.describe "Get Background Image for City Endpoint" do
     expect(data_attributes_credits[:logo]).to_not eq(nil)
   end
 
-  it "can render a 400 status if no location is specified" do
+  it "can render a 200 status if request is successful" do
+    params = {
+      location: 'Denver City Colorado'
+    }
+
+    headers = {
+      'content-type': 'application/json',
+      'Accept': 'application/json'
+    }
+
+    get '/api/v1/background', headers: headers, params: params
+    expect(response.status).to eq(200)
+  end
+
+  it "can render a 400 status if no location is specified or left blank" do
     params = {
       location: ''
     }

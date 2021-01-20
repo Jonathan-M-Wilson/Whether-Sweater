@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe RoadTripFacade do
   it "can create a road trip", :vcr do
-    VCR.use_cassette('/road_trip/denver_to_pueblo.json') do
+    VCR.use_cassette('/facade/denver_to_pueblo_road_trip.json') do
 
       start_city = "Denver,Co"
       end_city =  "Pueblo,Co"

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ImageFacade do
   it "can create an image with a location", :vcr do
-    VCR.use_cassette('/image_facade/denver_image.json') do
+    VCR.use_cassette('/facade/denver_image.json') do
 
       location = 'Denver City Colorado'
       image = ImageFacade.get_background(location)

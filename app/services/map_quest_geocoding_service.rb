@@ -22,7 +22,7 @@ class MapQuestGeocodingService
     end
 
     def conn
-      Faraday.new(url: ENV['GEOCODE_SERVICE_URL']) do |f|
+      Faraday.new(url: 'https://www.mapquestapi.com') do |f|
         f.params[:key] = ENV['MAPQUEST_CONSUMER_KEY']
       end
     end

@@ -1,4 +1,6 @@
 class CurrentForecast
+  include Formattable
+
   attr_reader :datetime,
               :sunrise,
               :sunset,
@@ -21,13 +23,5 @@ class CurrentForecast
     @visibility = current_forecast_params[:visibility]
     @conditions = current_forecast_params[:conditions]
     @icon = icon_link(current_forecast_params[:icon])
-  end
-
-  def format_time(time)
-    Time.zone.at(time)
-  end
-
-  def icon_link(icon_code)
-    "http://openweathermap.org/img/wn/#{icon_code}@2x.png"
   end
 end

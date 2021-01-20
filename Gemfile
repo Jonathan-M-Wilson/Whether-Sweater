@@ -40,7 +40,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'webmock'
   gem 'vcr'
-  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :development do

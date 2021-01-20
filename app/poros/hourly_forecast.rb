@@ -1,6 +1,6 @@
 class HourlyForecast
   include Formattable
-  
+
   attr_reader :time,
               :temperature,
               :wind_speed,

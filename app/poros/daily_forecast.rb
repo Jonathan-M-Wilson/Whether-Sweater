@@ -1,6 +1,6 @@
 class DailyForecast
   include Formattable
-  
+
   attr_reader :date,
               :sunrise,
               :sunset,

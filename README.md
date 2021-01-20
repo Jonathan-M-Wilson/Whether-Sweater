@@ -1,4 +1,5 @@
-# Wether-Sweater
+# Whether-Sweater
+[View Whether Sweater on Heroku](https://whether--sweater.herokuapp.com/api/v1)
 
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
@@ -10,7 +11,7 @@
   <h3 align="center">Whether-Sweater</h3>
 
   <p align="center">
-    Wether-Sweater is a backend application designed to satisfy the needs of a front-end team who are developing an application to create a road trip weather planning app. This application builds out the endpoints based off the wireframes supplied by the front-end.
+    Whether-Sweater is a backend application designed to satisfy the needs of a front-end team who are developing an application to create a road trip weather planning app. This application builds out the endpoints based off the wireframes supplied by the front-end.
     <br />
     <a href="https://github.com/Jonathan-M-Wilson/Whether-Sweater"><strong>Explore the docs »</strong></a>
     <br />
@@ -47,10 +48,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Wether Sweater is a 5-day, solo project during module three, of Turing School's Back-End Engineering Program.
+Whether Sweater is a 5-day, solo project during module three, of Turing School's Back-End Engineering Program.
 
 This application is a web application designed to consume and produce API's. The application utilizes Ruby on Rails, with a PostgrSQL database.
 
+To use this application in production to test out the endpoints, please visit [Whether--Sweater](https://whether--sweater.herokuapp.com/api/v1) on Heroku!
 
 ### Built With
 
@@ -60,7 +62,7 @@ This application is a web application designed to consume and produce API's. The
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To use Wether Sweater locally, you can fork or clone [this](https://github.com/Jonathan-M-Wilson/Whether-Sweater) repo.
+To use Whether Sweater locally, you can fork or clone [this](https://github.com/Jonathan-M-Wilson/Whether-Sweater) repo.
 
 
 ### Configuration
@@ -87,9 +89,9 @@ To use Wether Sweater locally, you can fork or clone [this](https://github.com/J
 
 ### Testing
 
-Wether Sweater has been fully tested. To view the test coverage;
+Whether Sweater has been fully tested. To view the test coverage;
 
-Once inside your terminal within the Wether Sweater directory, run the following command.
+Once inside your terminal within the Whether Sweater directory, run the following command.
 ```
 open coverage
 ```
@@ -109,7 +111,7 @@ Our schema only includes one table, which is a users table.
 
 
 ### Endpoints
-Below you will find a list of the endpoints within Wether Sweater.
+Below you will find a list of the endpoints within Whether Sweater.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f56ae596c9bcd1b393a8)
 
@@ -509,7 +511,7 @@ Contributions are what make this community such an amazing and fun place to lear
 Jonathan Wilson - [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/jonathan--wilson/) - [GitHub](https://github.com/Jonathan-M-Wilson)
 
 
-Project Link: [Rails Engine](https://github.com/Jonathan-M-Wilson/Whether-Sweater)
+Project Link: [Whether Sweater](https://github.com/Jonathan-M-Wilson/Whether-Sweater)
 
 
 

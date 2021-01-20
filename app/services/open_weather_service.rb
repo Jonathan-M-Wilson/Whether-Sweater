@@ -3,14 +3,23 @@ class OpenWeatherService
     def forecast_by_coordinates(coordinates)
       longitude = coordinates[:lng]
       latitude = coordinates[:lat]
-      get_json("/data/2.5/onecall?lat=#{latitude}&lon=#{longitude}")
+
+      response = conn.get '/data/2.5/onecall' do |req|
+        req.params[:lat] = latitude
+        req.params[:lon] = longitude
+      end
+      get_json(response)
     end
 
     def find_future_forecast(coordinates, time)
       longitude = coordinates[:lng]
       latitude = coordinates[:lat]
 
-      parsed_data = get_json("/data/2.5/onecall?lat=#{latitude}&lon=#{longitude}")
+      response = conn.get '/data/2.5/onecall' do |req|
+        req.params[:lat] = latitude
+        req.params[:lon] = longitude
+      end
+      parsed_data = get_json(response)
       {
         temp: parsed_data[:hourly][time][:temp],
         description: parsed_data[:hourly][time][:weather][0][:description]
@@ -19,8 +28,7 @@ class OpenWeatherService
 
     private
 
-    def get_json(url)
-      response = conn.get(url)
+    def get_json(response)
       JSON.parse(response.body, symbolize_names: true)
     end
 

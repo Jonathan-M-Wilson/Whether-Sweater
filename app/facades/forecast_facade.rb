@@ -10,7 +10,7 @@ class ForecastFacade
     end
 
     def current_weather(location)
-      coordinates = geocode(location)
+      coordinates = find_lat_and_long(location)
       data = {
         datetime: weather_service(coordinates)[:current][:dt],
         sunrise: weather_service(coordinates)[:current][:sunrise],
@@ -27,7 +27,7 @@ class ForecastFacade
     end
 
     def daily_weather(location)
-      coordinates = geocode(location)
+      coordinates = find_lat_and_long(location)
       weather_service(coordinates)[:daily][1..5].map do |forecast|
         data = {
           date: forecast[:dt],
@@ -43,7 +43,7 @@ class ForecastFacade
     end
 
     def hourly_weather(location)
-      coordinates = geocode(location)
+      coordinates = find_lat_and_long(location)
       weather_service(coordinates)[:hourly][1..8].map do |forecast|
         data = {
           time: forecast[:dt],
@@ -57,7 +57,7 @@ class ForecastFacade
       end
     end
 
-    def geocode(location)
+    def find_lat_and_long(location)
       geocode = geocode_service(location)
       geocode[:results][0][:locations][0][:latLng]
     end
